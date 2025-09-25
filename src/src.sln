@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoSolve.ImageSharp.AVIF", "NeoSolve.ImageSharp.AVIF.csproj", "{AAA24730-22F9-A42E-140E-7D0FF68C8C3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAA24730-22F9-A42E-140E-7D0FF68C8C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA24730-22F9-A42E-140E-7D0FF68C8C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA24730-22F9-A42E-140E-7D0FF68C8C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA24730-22F9-A42E-140E-7D0FF68C8C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C281A82-01CF-43F4-AD92-F134E9EE199A}
+	EndGlobalSection
+EndGlobal

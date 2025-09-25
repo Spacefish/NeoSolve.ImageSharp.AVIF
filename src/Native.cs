@@ -10,11 +10,18 @@ public static class Native {
 
     private static string OSFolder {
         get {
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                return "linux";
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                if (RuntimeInformation.ProcessArchitecture == Architecture.X64)
+                    return "linux-x64";
+                if (RuntimeInformation.ProcessArchitecture == Architecture.Arm64)
+                    return "linux-arm64";
+                throw new InvalidOperationException("Only x64 and arm64 are supported on Linux.");
+            }
 
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-                if(Environment.Is64BitProcess)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                if (Environment.Is64BitProcess)
                     return "win-x64";
 
                 throw new InvalidOperationException("Only x64 is supported on Windows.");
