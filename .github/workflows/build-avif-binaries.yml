@@ -18,15 +18,15 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential nasm cmake
+          sudo apt-get install -y build-essential nasm cmake ninja-build libjpeg-dev libpng-dev libtiff-dev libwebp-dev libaom-dev libyuv-dev zlib1g-dev
 
       - name: Build libavif binaries
         run: |
           cd libavif
           mkdir -p build
           cd build
-          cmake -DAVIF_CODEC_AOM=LOCAL -DAVIF_LIBYUV=LOCAL -DAVIF_BUILD_APPS=ON ..
-          make -j$(nproc)
+          cmake -DAVIF_CODEC_AOM=LOCAL -DAVIF_LIBYUV=LOCAL -DAVIF_BUILD_APPS=ON -G Ninja ..
+          ninja
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
