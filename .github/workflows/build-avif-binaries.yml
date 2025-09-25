@@ -1,6 +1,9 @@
 name: Build AVIF binaries
 
 on:
+  push:
+    # any branch
+    branches: [ "*" ]
   workflow_dispatch: # Allows manual triggering  
 
 jobs:
