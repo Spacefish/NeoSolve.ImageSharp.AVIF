@@ -1,0 +1,37 @@
+name: Build AVIF binaries
+
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build-amd64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential nasm cmake
+
+      - name: Build libavif binaries
+        run: |
+          cd libavif
+          mkdir -p build
+          cd build
+          cmake -DAVIF_CODEC_AOM=LOCAL -DAVIF_LIBYUV=LOCAL -DAVIF_BUILD_APPS=ON ..
+          make -j$(nproc)
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: c-native-artifact
+          path: |
+            libavif/build/avifenc
+            libavif/build/avifdec
+          if-no-files-found: error
+          # Retain artifacts for 1 day
+          retention-days: 1
+
